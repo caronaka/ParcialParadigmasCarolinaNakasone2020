@@ -1,0 +1,1 @@
+# ParcialParadigmasCarolinaNakasone2020
