@@ -27,7 +27,30 @@ Tenga en cuenta que las acciones del menú no tienen un orden en particular
 import csv
 import os.path
 
+def menu_vacaciones():
 
+    CAMPOS = ['Legajo', 'Apellido', 'Nombre', 'Total Vacaciones']
+    ARCHIVODIAS = "dias.csv"
+    archivolegajos = input("Ingrese el nombre del archivo: ")+".csv"
+
+    while True:
+        print("MENU:\n1.Cargar legajos.\n2.Leer/Recuper informacion.\n3.Salir. ")
+        opcion = input("Ingrese una opcion: ")
+
+
+        if opcion == "1":
+
+            cargar(archivolegajos, CAMPOS)
+
+        elif opcion == "2":
+
+            leer(archivolegajos, ARCHIVODIAS)
+
+        elif opcion == "3":
+            exit()
+
+        else:
+            print("Ingrese una opcion valida.")
 
 
 
@@ -38,7 +61,16 @@ def entrada(campos):
         while seguir =="si":
             trabajador = {}
             for campo in campos :
-                trabajador[campo] = input(f"Ingrese {campo} del trabajador: ") #falta validar int de lgajo y total vacaciones
+
+                if campo == "Legajo" or campo == "Total Vacaciones":
+
+                    trabajador[campo] = input(f"Ingrese {campo} del trabajador: ")
+
+
+
+                else:
+                    trabajador[campo] = input(f"Ingrese {campo} del trabajador: ")
+
             lista_legajos.append(trabajador)
             seguir = input("Desea seguir? si/no: ").lower()
         return lista_legajos
