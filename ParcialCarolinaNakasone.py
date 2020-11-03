@@ -54,18 +54,25 @@ def menu_vacaciones():
 
 
 
-
 def entrada(campos):
         seguir = "si"
         lista_legajos = []
         while seguir =="si":
             trabajador = {}
+
             for campo in campos :
 
-                if campo == "Legajo" or campo == "Total Vacaciones":
+                if campo == "Legajo" or campo == "Total Vacaciones" :
 
-                    trabajador[campo] = input(f"Ingrese {campo} del trabajador: ")
+                    while True:
+                        trabajador[campo] = input(f"Ingrese {campo} del trabajador: ")
 
+                        try:
+                            trabajador[campo] = int(trabajador[campo])
+                            break
+
+                        except ValueError:
+                            print("No es un numero entero.")
 
 
                 else:
